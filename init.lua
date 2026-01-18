@@ -97,7 +97,6 @@ vim.g.have_nerd_font = true
 require 'options'
 
 require 'custom.options'
-require 'custom.colorscheme'
 
 -- [[ Basic Keymaps ]]
 require 'custom.keymaps'
