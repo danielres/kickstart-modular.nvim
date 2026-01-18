@@ -39,7 +39,6 @@ return {
       desc = 'Decrement',
       mode = { 'n', 'x' },
     },
-    -- Fixed: Removed expr = true for manipulate() calls
     {
       '<C-S-A>',
       function()
