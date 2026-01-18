@@ -39,6 +39,23 @@ return {
       desc = 'Decrement',
       mode = { 'n', 'x' },
     },
+    -- Fixed: Removed expr = true for manipulate() calls
+    {
+      '<C-S-A>',
+      function()
+        require('dial.map').manipulate('increment', 'normal', nil, 10)
+      end,
+      desc = 'Increment by 10',
+      mode = { 'n', 'v' },
+    },
+    {
+      '<C-S-X>',
+      function()
+        require('dial.map').manipulate('decrement', 'normal', nil, 10)
+      end,
+      desc = 'Decrement by 10',
+      mode = { 'n', 'v' },
+    },
   },
   opts = function()
     local augend = require 'dial.augend'
