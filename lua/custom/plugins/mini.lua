@@ -21,6 +21,9 @@ return {
         hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
       },
     }
+    require('mini.indentscope').setup {
+      symbol = '▏',
+    }
     require('mini.move').setup()
     require('mini.pairs').setup()
     require('mini.sessions').setup {
