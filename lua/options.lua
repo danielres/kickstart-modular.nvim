@@ -3,6 +3,12 @@
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- CUSTOM =======================================
+vim.o.shell = 'fish'
+vim.g.root_spec = { { '.git', 'lua' }, 'cwd', 'lsp' }
+vim.o.relativenumber = true
+-- /CUSTOM ======================================
+
 -- Make line numbers default
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
