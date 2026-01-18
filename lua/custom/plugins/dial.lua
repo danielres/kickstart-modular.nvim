@@ -3,10 +3,42 @@ return {
   recommended = true,
   desc = 'Increment and decrement numbers, dates, and more',
   keys = {
-    { '<C-a>', require('dial.map').inc_normal(), expr = true, desc = 'Increment', mode = { 'n', 'v' } },
-    { '<C-x>', require('dial.map').dec_normal(), expr = true, desc = 'Decrement', mode = { 'n', 'v' } },
-    { 'g<C-a>', require('dial.map').inc_gnormal(), expr = true, desc = 'Increment', mode = { 'n', 'x' } },
-    { 'g<C-x>', require('dial.map').dec_gnormal(), expr = true, desc = 'Decrement', mode = { 'n', 'x' } },
+    {
+      '<C-a>',
+      function()
+        return require('dial.map').inc_normal()
+      end,
+      expr = true,
+      desc = 'Increment',
+      mode = { 'n', 'v' },
+    },
+    {
+      '<C-x>',
+      function()
+        return require('dial.map').dec_normal()
+      end,
+      expr = true,
+      desc = 'Decrement',
+      mode = { 'n', 'v' },
+    },
+    {
+      'g<C-a>',
+      function()
+        return require('dial.map').inc_gnormal()
+      end,
+      expr = true,
+      desc = 'Increment',
+      mode = { 'n', 'x' },
+    },
+    {
+      'g<C-x>',
+      function()
+        return require('dial.map').dec_gnormal()
+      end,
+      expr = true,
+      desc = 'Decrement',
+      mode = { 'n', 'x' },
+    },
   },
   opts = function()
     local augend = require 'dial.augend'
@@ -51,6 +83,9 @@ return {
           months,
           capitalized_boolean,
           logical_alias,
+          -- Add hex color support globally
+          augend.hexcolor.new { case = 'lower' },
+          augend.hexcolor.new { case = 'upper' },
         },
         typescript = {
           augend.constant.new { elements = { 'let', 'const' } },
