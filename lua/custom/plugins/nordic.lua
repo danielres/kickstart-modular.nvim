@@ -6,7 +6,7 @@ return {
     -- require('nordic').load()
     require('nordic').setup {
       on_palette = function(palette)
-        palette.black0 = '#0d0f14'
+        palette.black0 = '#000000'
         palette.gray0 = '#191D24'
       end,
       integrations = {
