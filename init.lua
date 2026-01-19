@@ -98,6 +98,7 @@ require 'options'
 
 require 'custom.options'
 require 'custom.autocmd'
+require 'custom.neovide'
 
 -- [[ Basic Keymaps ]]
 require 'custom.keymaps'
