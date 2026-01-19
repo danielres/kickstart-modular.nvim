@@ -21,6 +21,7 @@ vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Keep search results centered (2/2)' 
 
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Keep cursor centered when scrolling (1/2)' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Keep cursor centered when scrolling (2/2)' })
+vim.keymap.set('v', 'ag', '<Esc>ggVG', { desc = 'Select entire document' })
 
 vim.keymap.set('n', 'gp', function()
   vim.cmd 'normal! `[v`]'
