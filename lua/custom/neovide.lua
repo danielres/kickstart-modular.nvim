@@ -6,6 +6,8 @@ if vim.g.neovide then
   vim.g.neovide_theme = 'dark' -- not "auto" on Wayland
   vim.opt.background = 'dark'
   vim.g.neovide_window_blurred = true
+  vim.g.neovide_floating_blur_amount_x = 5.0
+  vim.g.neovide_floating_blur_amount_y = 5.0
   vim.g.neovide_opacity = 0.9
   vim.g.neovide_normal_opacity = 0.9
   vim.g.neovide_scale_factor = 1.0
