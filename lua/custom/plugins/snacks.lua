@@ -6,14 +6,86 @@ return {
     styles = {
       -- use entire screen space
       lazygit = { width = 0, height = 0 },
-      terminal = { width = 0, height = 0 },
       scratch = { width = 0, height = 0 },
+      terminal = {
+        bo = {
+          filetype = 'snacks_terminal',
+        },
+        wo = {},
+        stack = true, -- when enabled, multiple split windows with the same position will be stacked together (useful for terminals)
+        keys = {
+          -- Add window navigation keys
+          ['<C-h>'] = {
+            function()
+              vim.cmd 'stopinsert'
+              vim.cmd 'wincmd h'
+            end,
+            mode = 't',
+          },
+          ['<C-j>'] = {
+            function()
+              vim.cmd 'stopinsert'
+              vim.cmd 'wincmd j'
+            end,
+            mode = 't',
+          },
+          ['<C-k>'] = {
+            function()
+              vim.cmd 'stopinsert'
+              vim.cmd 'wincmd k'
+            end,
+            mode = 't',
+          },
+          ['<C-l>'] = {
+            function()
+              vim.cmd 'stopinsert'
+              vim.cmd 'wincmd l'
+            end,
+            mode = 't',
+          },
+          ['<C-/>'] = {
+            function()
+              vim.cmd 'stopinsert'
+              Snacks.terminal.toggle()
+            end,
+            mode = 't',
+          },
+          gf = function(self)
+            local f = vim.fn.findfile(vim.fn.expand '<cfile>', '**')
+            if f == '' then
+              Snacks.notify.warn 'No file under cursor'
+            else
+              self:hide()
+              vim.schedule(function()
+                vim.cmd('e ' .. f)
+              end)
+            end
+          end,
+          term_normal = {
+            '<esc>',
+            function(self)
+              self.esc_timer = self.esc_timer or (vim.uv or vim.loop).new_timer()
+              if self.esc_timer:is_active() then
+                self.esc_timer:stop()
+                vim.cmd 'stopinsert'
+              else
+                self.esc_timer:start(200, 0, function() end)
+                return '<esc>'
+              end
+            end,
+            mode = 't',
+            expr = true,
+            desc = 'Double escape to normal mode',
+          },
+        },
+      },
     },
     lazygit = {
       configure = true,
       theme_path = vim.fs.normalize(vim.fn.stdpath 'cache' .. '/lazygit-theme.yml'),
     },
     toggle = {},
+    key,
   },
   init = function()
     vim.api.nvim_create_autocmd('User', {
@@ -36,6 +108,13 @@ return {
     })
   end,
   keys = {
+    {
+      '<C-/>',
+      function()
+        Snacks.terminal.toggle()
+      end,
+      desc = 'Toggle terminal',
+    },
     {
       '<leader>ba',
       function()
