@@ -7,6 +7,7 @@
 vim.o.shell = 'fish'
 vim.g.root_spec = { { '.git', 'lua' }, 'cwd', 'lsp' }
 vim.o.relativenumber = true
+vim.o.wrap = false
 -- /CUSTOM ======================================
 
 -- Make line numbers default
