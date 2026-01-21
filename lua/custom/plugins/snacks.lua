@@ -58,28 +58,28 @@ return {
       desc = 'Lazygit',
     },
     {
-      '<leader>gi',
+      '<leader>gGi',
       function()
         Snacks.picker.gh_issue()
       end,
       desc = 'GitHub Issues (open)',
     },
     {
-      '<leader>gI',
+      '<leader>gGI',
       function()
         Snacks.picker.gh_issue { state = 'all' }
       end,
       desc = 'GitHub Issues (all)',
     },
     {
-      '<leader>gp',
+      '<leader>gGp',
       function()
         Snacks.picker.gh_pr()
       end,
       desc = 'GitHub Pull Requests (open)',
     },
     {
-      '<leader>gP',
+      '<leader>gGP',
       function()
         Snacks.picker.gh_pr { state = 'all' }
       end,
