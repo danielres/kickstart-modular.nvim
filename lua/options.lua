@@ -8,6 +8,9 @@ vim.o.shell = 'fish'
 vim.g.root_spec = { { '.git', 'lua' }, 'cwd', 'lsp' }
 vim.o.relativenumber = true
 vim.o.wrap = false
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 -- /CUSTOM ======================================
 
 -- Make line numbers default
