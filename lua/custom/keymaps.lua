@@ -5,38 +5,43 @@
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Diagnostic keymaps
--- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
--- Terminal
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
--- Custom
-
 local nmap = function(lhs, rhs, desc)
   vim.keymap.set('n', lhs, rhs, { desc = desc })
 end
 
-
+-- Window navigation
 nmap('<C-h>', '<C-w><C-h>', 'Move focus to the left window')
 nmap('<C-l>', '<C-w><C-l>', 'Move focus to the right window')
 nmap('<C-j>', '<C-w><C-j>', 'Move focus to the lower window')
 nmap('<C-k>', '<C-w><C-k>', 'Move focus to the upper window')
 
--- nmap( '<leader>uw', '<cmd>set wrap!<CR>', 'Toggle [W]rap')
+-- Buffers
 nmap('<C-q>', '<cmd>bdelete<CR>', 'Close current buffer')
+nmap('<leader>bd', '<cmd>bdelete<CR>', 'Close current buffer')
+nmap('<S-h>', '<cmd>bprevious<cr>', 'Prev Buffer')
+nmap('<S-l>', '<cmd>bnext<cr>', 'Next Buffer')
+nmap('[b', '<cmd>bprevious<cr>', 'Prev Buffer')
+nmap(']b', '<cmd>bnext<cr>', 'Next Buffer')
+nmap('<leader>bb', '<cmd>e #<cr>', 'Switch to Other Buffer')
+nmap('<leader>`', '<cmd>e #<cr>', 'Switch to Other Buffer')
 
+-- Centering
 nmap('n', 'nzzzv', 'Keep search results centered (1/2)')
 nmap('N', 'Nzzzv', 'Keep search results centered (2/2)')
-
 nmap('<C-d>', '<C-d>zz', 'Keep cursor centered when scrolling (1/2)')
 nmap('<C-u>', '<C-u>zz', 'Keep cursor centered when scrolling (2/2)')
 
+-- Selection
 vim.keymap.set('v', 'ag', '<Esc>ggVG', { desc = 'Select entire document' })
-
 vim.keymap.set('n', 'gp', function()
   vim.cmd 'normal! `[v`]'
 end, { desc = 'Select last change/paste' })
+
+-- Terminal
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+-- Diagnostic
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- EXPLORERS ---------------------------------------
 
