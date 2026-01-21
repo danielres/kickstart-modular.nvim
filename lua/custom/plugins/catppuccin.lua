@@ -7,8 +7,17 @@ return {
   config = function()
     require('catppuccin').setup {
       flavour = 'mocha',
+      transparent_background = true, -- disables setting the background color.
+      float = {
+        transparent = true, -- enable transparent floating windows
+      },
       term_colors = true,
       auto_integrations = true,
+      integrations = {
+        mini = {
+          indentscope_color = 'surface1',
+        },
+      },
       color_overrides = {
         all = {
           -- DEFAULTS --------------------
