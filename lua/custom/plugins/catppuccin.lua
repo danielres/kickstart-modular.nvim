@@ -41,23 +41,26 @@ return {
           flamingo = '#f2cdcd',
           pink = '#f5ceea',
           mauve = '#d1b2f7',
-          red = '#f3a9bc',
-          maroon = '#ebb7be',
+          red = '#f3bdca',
+          maroon = '#ebbaaf',
           peach = '#fac9ac',
+          peach = '#faddcb',
           yellow = '#f9e2af',
           green = '#ace3a7',
           teal = '#94e2d5',
-          sky = '#99deeb',
+          sky = '#b3e2eb',
           sapphire = '#8eceec',
           blue = '#89b4fa',
           lavender = '#b4befe',
-          base = '#191a24',
+          base = '#181c25',
         },
       },
 
       custom_highlights = function(colors)
         return {
-          Normal = { bg = '#151620' },
+          Normal = {
+            bg = '#131926',
+          },
         }
       end,
     }
