@@ -27,20 +27,6 @@ vim.keymap.set('n', 'gp', function()
   vim.cmd 'normal! `[v`]'
 end, { desc = 'Select last change/paste' })
 
--- QUICKER ----------
-
-vim.keymap.set('n', '<leader>q', function()
-  require('quicker').toggle()
-end, {
-  desc = 'Toggle quickfix',
-})
-
-vim.keymap.set('n', '<leader>l', function()
-  require('quicker').toggle { loclist = true }
-end, {
-  desc = 'Toggle loclist',
-})
-
 -- EXPLORERS ---------------------------------------
 
 vim.keymap.set('n', '<leader>E', function()
