@@ -1,25 +1,20 @@
+local languages = { 'c', 'lua', 'rust', 'elixir', 'heex', 'ex' }
+
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    lazy = false,
+    branch = 'main',
     build = ':TSUpdate',
-    config = function()
-      -- Enable treesitter features for specific filetypes
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = { 'elixir', 'heex', 'eex' },
-        callback = function()
-          vim.treesitter.start() -- Enable highlighting
-          -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-          -- vim.wo.foldmethod = 'expr'
-          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-        end,
-      })
-    end,
   },
   {
     'MeanderingProgrammer/treesitter-modules.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     opts = {
+      ensure_installed = languages,
+      fold = { enable = true },
+      highlight = { enable = true },
+      indent = { enable = true },
+      auto_install = true,
       incremental_selection = {
         enable = true,
         keymaps = {
