@@ -9,14 +9,14 @@ return {
   },
   keys = {
     {
-      '<leader>uq',
+      '<leader>wq',
       function()
         require('quicker').toggle()
       end,
       desc = 'Toggle [Q]uickfix',
     },
     {
-      '<leader>ul',
+      '<leader>wl',
       function()
         require('quicker').toggle { loclist = true }
       end,

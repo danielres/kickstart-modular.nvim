@@ -99,11 +99,11 @@ return {
         Snacks.toggle.line_number():map '<leader>ul'
         Snacks.toggle.option('conceallevel', { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map '<leader>uc'
         Snacks.toggle.treesitter():map '<leader>uT'
-        Snacks.toggle.option('background', { off = 'light', on = 'dark', name = 'Dark Background' }):map '<leader>ub'
+        -- Snacks.toggle.option('background', { off = 'light', on = 'dark', name = 'Dark Background' }):map '<leader>ub'
         Snacks.toggle.inlay_hints():map '<leader>uh'
-        Snacks.toggle.indent():map '<leader>ug'
+        -- Snacks.toggle.indent():map '<leader>ug'
         Snacks.toggle.dim():map '<leader>uD'
-        Snacks.toggle.zoom():map '<leader>uz'
+        Snacks.toggle.zoom():map '<leader>bz'
       end,
     })
   end,
@@ -113,21 +113,21 @@ return {
       function()
         Snacks.bufdelete()
       end,
-      desc = '[D]elete buffer',
+      desc = '[D]elete',
     },
     {
       '<leader>bo',
       function()
         Snacks.bufdelete.other()
       end,
-      desc = 'Delete [O]ther buffers',
+      desc = 'Delete [O]ther',
     },
     {
       '<leader>ba',
       function()
         Snacks.bufdelete.all()
       end,
-      desc = 'Delete [A]ll buffers',
+      desc = 'Delete [A]ll',
     },
     {
       '<leader><leader>e',
@@ -176,7 +176,7 @@ return {
       function()
         Snacks.scratch()
       end,
-      desc = 'Toggle Scratch Buffer',
+      desc = 'Scratch Buffer',
     },
     {
       '<leader><leader>.',

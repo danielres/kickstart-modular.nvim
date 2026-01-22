@@ -20,8 +20,8 @@ vim.keymap.set({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', ex
 vim.keymap.set({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
 
 -- save buffer
-vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = '[S]ave buffer' })
-vim.keymap.set({ 'i', 'x', 'n', 's' }, '<leader>bs', '<cmd>w<cr><esc>', { desc = '[S]ave buffer' })
+vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = '[S]ave' })
+vim.keymap.set({ 'i', 'x', 'n', 's' }, '<leader>bs', '<cmd>w<cr><esc>', { desc = '[S]ave' })
 
 -- quit
 vim.keymap.set('n', '<leader><leader>q', '<cmd>qa<cr>', { desc = '[Q]uit All' })
