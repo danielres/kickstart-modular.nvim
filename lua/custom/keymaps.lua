@@ -80,11 +80,11 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 
 vim.keymap.set('n', '<leader>E', function()
   require('mini.files').open()
-end, { desc = 'Open mini.files (cwd)' })
+end, { desc = 'mini.files (cwd)' })
 
 vim.keymap.set('n', '<leader>e', function()
   require('mini.files').open(vim.api.nvim_buf_get_name(0), true)
-end, { desc = 'Open mini.files (Directory of Current File)' })
+end, { desc = 'mini.files' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

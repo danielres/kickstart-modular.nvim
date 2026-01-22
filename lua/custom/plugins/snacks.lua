@@ -176,7 +176,7 @@ return {
       function()
         Snacks.scratch()
       end,
-      desc = 'Scratch Buffer',
+      desc = 'Scratch',
     },
     {
       '<leader><leader>.',
