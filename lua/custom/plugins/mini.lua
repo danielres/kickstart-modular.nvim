@@ -11,6 +11,11 @@ return {
     require('mini.ai').setup { n_lines = 500 }
     require('mini.bracketed').setup()
     require('mini.clue').setup()
+    require('mini.comment').setup {
+      mappings = {
+        textobject = 'c',
+      },
+    }
     require('mini.files').setup {
       windows = { preview = true, width_preview = 75 },
       mappings = { close = '<Esc>' },
