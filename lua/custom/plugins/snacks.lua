@@ -85,7 +85,6 @@ return {
       theme_path = vim.fs.normalize(vim.fn.stdpath 'cache' .. '/lazygit-theme.yml'),
     },
     toggle = {},
-    key,
   },
   init = function()
     vim.api.nvim_create_autocmd('User', {
