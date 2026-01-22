@@ -185,5 +185,12 @@ return {
       end,
       desc = 'Select Scratch Buffer',
     },
+    {
+      '<C-/>',
+      function()
+        Snacks.terminal.toggle()
+      end,
+      desc = '[T]oggle terminal',
+    },
   },
 }
