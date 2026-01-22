@@ -107,7 +107,7 @@ return {
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
-          map('<localleader>t', require('telescope.builtin').lsp_type_definitions, '[T]ype Definition')
+          map('<localleader>y', require('telescope.builtin').lsp_type_definitions, 'T[Y]pe Definition')
 
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
