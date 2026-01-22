@@ -9,6 +9,30 @@ local nmap = function(lhs, rhs, desc)
   vim.keymap.set('n', lhs, rhs, { desc = desc })
 end
 
+-- better up/down (moves by visible lines, also when wrap is on)
+vim.keymap.set({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { desc = 'Down', expr = true, silent = true })
+vim.keymap.set({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { desc = 'Down', expr = true, silent = true })
+vim.keymap.set({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
+vim.keymap.set({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
+
+-- save file
+vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
+vim.keymap.set({ 'i', 'x', 'n', 's' }, '<leader>w', '<cmd>w<cr><esc>', { desc = 'Save File' })
+
+-- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+vim.keymap.set('n', 'n', "'Nn'[v:searchforward].'zv'", { expr = true, desc = 'Next Search Result' })
+vim.keymap.set('x', 'n', "'Nn'[v:searchforward]", { expr = true, desc = 'Next Search Result' })
+vim.keymap.set('o', 'n', "'Nn'[v:searchforward]", { expr = true, desc = 'Next Search Result' })
+vim.keymap.set('n', 'N', "'nN'[v:searchforward].'zv'", { expr = true, desc = 'Prev Search Result' })
+vim.keymap.set('x', 'N', "'nN'[v:searchforward]", { expr = true, desc = 'Prev Search Result' })
+vim.keymap.set('o', 'N', "'nN'[v:searchforward]", { expr = true, desc = 'Prev Search Result' })
+
+-- Resize window using <ctrl> arrow keys
+vim.keymap.set('n', '<Up>', '<cmd>resize +6<cr>', { desc = 'Increase Window Height' })
+vim.keymap.set('n', '<Down>', '<cmd>resize -6<cr>', { desc = 'Decrease Window Height' })
+vim.keymap.set('n', '<Left>', '<cmd>vertical resize -8<cr>', { desc = 'Decrease Window Width' })
+vim.keymap.set('n', '<Right>', '<cmd>vertical resize +8<cr>', { desc = 'Increase Window Width' })
+--
 -- Window navigation
 nmap('<C-h>', '<C-w><C-h>', 'Move focus to the left window')
 nmap('<C-l>', '<C-w><C-l>', 'Move focus to the right window')
@@ -16,8 +40,6 @@ nmap('<C-j>', '<C-w><C-j>', 'Move focus to the lower window')
 nmap('<C-k>', '<C-w><C-k>', 'Move focus to the upper window')
 
 -- Buffers
-nmap('<C-q>', '<cmd>bdelete<CR>', 'Close current buffer')
-nmap('<leader>bd', '<cmd>bdelete<CR>', 'Close current buffer')
 nmap('<S-h>', '<cmd>bprevious<cr>', 'Prev Buffer')
 nmap('<S-l>', '<cmd>bnext<cr>', 'Next Buffer')
 nmap('[b', '<cmd>bprevious<cr>', 'Prev Buffer')

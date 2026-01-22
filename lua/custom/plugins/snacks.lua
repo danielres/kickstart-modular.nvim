@@ -109,18 +109,25 @@ return {
   end,
   keys = {
     {
-      '<C-/>',
+      '<leader>bd',
       function()
-        Snacks.terminal.toggle()
+        Snacks.bufdelete()
       end,
-      desc = 'Toggle terminal',
+      desc = '[D]elete buffer',
+    },
+    {
+      '<leader>bo',
+      function()
+        Snacks.bufdelete.other()
+      end,
+      desc = 'Delete [O]ther buffers',
     },
     {
       '<leader>ba',
       function()
         Snacks.bufdelete.all()
       end,
-      desc = 'Delete all buffers',
+      desc = 'Delete [A]ll buffers',
     },
     {
       '<leader><leader>e',
@@ -164,7 +171,19 @@ return {
       end,
       desc = 'GitHub Pull Requests (all)',
     },
-    { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
-    { "<leader><leader>.",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
+    {
+      '<leader>.',
+      function()
+        Snacks.scratch()
+      end,
+      desc = 'Toggle Scratch Buffer',
+    },
+    {
+      '<leader><leader>.',
+      function()
+        Snacks.scratch.select()
+      end,
+      desc = 'Select Scratch Buffer',
+    },
   },
 }
