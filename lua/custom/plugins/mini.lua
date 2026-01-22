@@ -10,7 +10,11 @@ return {
     --  - ci'  - [C]hange [I]nside [']quote
     require('mini.ai').setup { n_lines = 500 }
     require('mini.clue').setup()
-    require('mini.files').setup { windows = { preview = true, width_preview = 75 } }
+    require('mini.files').setup {
+      windows = { preview = true, width_preview = 75 },
+      mappings = { close = '<Esc>' },
+      options = { permanent_delete = false },
+    }
     require('mini.hipatterns').setup {
       highlighters = {
         fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
