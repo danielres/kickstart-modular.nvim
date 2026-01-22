@@ -68,6 +68,7 @@ return {
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>u', group = '[U]i' },
+        { '<leader>w', group = '[W]indow' },
       },
     },
   },

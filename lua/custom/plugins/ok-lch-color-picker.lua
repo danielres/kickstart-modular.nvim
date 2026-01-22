@@ -5,11 +5,11 @@ return {
   keys = {
     -- One handed keymap recommended, you will be using the mouse
     {
-      '<leader>v',
+      '<leader>cc',
       function()
         require('oklch-color-picker').pick_under_cursor()
       end,
-      desc = 'Color pick under cursor',
+      desc = '[C]olor pick under cursor',
     },
   },
   opts = {

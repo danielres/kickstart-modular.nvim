@@ -9,15 +9,27 @@ local nmap = function(lhs, rhs, desc)
   vim.keymap.set('n', lhs, rhs, { desc = desc })
 end
 
+-- commenting
+vim.keymap.set('n', 'gco', 'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Below' })
+vim.keymap.set('n', 'gcO', 'O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Above' })
+--
 -- better up/down (moves by visible lines, also when wrap is on)
 vim.keymap.set({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { desc = 'Down', expr = true, silent = true })
 vim.keymap.set({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { desc = 'Down', expr = true, silent = true })
 vim.keymap.set({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
 vim.keymap.set({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
 
--- save file
-vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
-vim.keymap.set({ 'i', 'x', 'n', 's' }, '<leader>w', '<cmd>w<cr><esc>', { desc = 'Save File' })
+-- save buffer
+vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = '[S]ave buffer' })
+vim.keymap.set({ 'i', 'x', 'n', 's' }, '<leader>bs', '<cmd>w<cr><esc>', { desc = '[S]ave buffer' })
+
+-- quit
+vim.keymap.set('n', '<leader><leader>q', '<cmd>qa<cr>', { desc = '[Q]uit All' })
+
+-- windows
+vim.keymap.set('n', '<leader>wv', '<C-W>v', { desc = 'Split [V]ertical', remap = true })
+vim.keymap.set('n', '<leader>ws', '<C-W>h', { desc = 'Split [H]orizontal', remap = true })
+vim.keymap.set('n', '<leader>wd', '<C-W>c', { desc = '[D]elete', remap = true })
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 vim.keymap.set('n', 'n', "'Nn'[v:searchforward].'zv'", { expr = true, desc = 'Next Search Result' })
@@ -44,8 +56,7 @@ nmap('<S-h>', '<cmd>bprevious<cr>', 'Prev Buffer')
 nmap('<S-l>', '<cmd>bnext<cr>', 'Next Buffer')
 nmap('[b', '<cmd>bprevious<cr>', 'Prev Buffer')
 nmap(']b', '<cmd>bnext<cr>', 'Next Buffer')
-nmap('<leader>bb', '<cmd>e #<cr>', 'Switch to Other Buffer')
-nmap('<leader>`', '<cmd>e #<cr>', 'Switch to Other Buffer')
+nmap('<leader>bb', '<cmd>e #<cr>', 'Switch to Other [B]uffer')
 
 -- Centering
 nmap('n', 'nzzzv', 'Keep search results centered (1/2)')
