@@ -9,27 +9,29 @@ local nmap = function(lhs, rhs, desc)
   vim.keymap.set('n', lhs, rhs, { desc = desc })
 end
 
--- commenting
+-- Commenting
 vim.keymap.set('n', 'gco', 'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Below' })
 vim.keymap.set('n', 'gcO', 'O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Above' })
---
--- better up/down (moves by visible lines, also when wrap is on)
+
+-- Better up/down (moves by visible lines, also when wrap is on)
 vim.keymap.set({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { desc = 'Down', expr = true, silent = true })
 vim.keymap.set({ 'n', 'x' }, '<Down>', "v:count == 0 ? 'gj' : 'j'", { desc = 'Down', expr = true, silent = true })
 vim.keymap.set({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
 vim.keymap.set({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
 
--- save buffer
+-- Save buffer
 vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = '[S]ave' })
 vim.keymap.set({ 'i', 'x', 'n', 's' }, '<leader>bs', '<cmd>w<cr><esc>', { desc = '[S]ave' })
 
--- quit
+-- Quit
 vim.keymap.set('n', '<leader><leader>q', '<cmd>qa<cr>', { desc = '[Q]uit All' })
 
--- windows
-vim.keymap.set('n', '<leader>wv', '<C-W>v', { desc = 'Split [V]ertical', remap = true })
-vim.keymap.set('n', '<leader>ws', '<C-W>h', { desc = 'Split [H]orizontal', remap = true })
-vim.keymap.set('n', '<leader>wd', '<C-W>c', { desc = '[D]elete', remap = true })
+-- Tabs
+vim.keymap.set('n', '<leader><Tab>o', '<Cmd>tabonly<CR>', { desc = 'Close [O]ther Tabs' })
+vim.keymap.set('n', '<leader><Tab>[', '<Cmd>tabprevious<CR>', { desc = 'Previous Tab' })
+vim.keymap.set('n', '<leader><Tab>]', '<Cmd>tabnext<CR>', { desc = 'Next Tab' })
+vim.keymap.set('n', '<leader><Tab>n', '<Cmd>tabnew<CR>', { desc = 'New Tab' })
+vim.keymap.set('n', '<leader><Tab>d', '<Cmd>tabclose<CR>', { desc = 'Close Tab' })
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 vim.keymap.set('n', 'n', "'Nn'[v:searchforward].'zv'", { expr = true, desc = 'Next Search Result' })
@@ -44,7 +46,7 @@ vim.keymap.set('n', '<Up>', '<cmd>resize +6<cr>', { desc = 'Increase Window Heig
 vim.keymap.set('n', '<Down>', '<cmd>resize -6<cr>', { desc = 'Decrease Window Height' })
 vim.keymap.set('n', '<Left>', '<cmd>vertical resize -8<cr>', { desc = 'Decrease Window Width' })
 vim.keymap.set('n', '<Right>', '<cmd>vertical resize +8<cr>', { desc = 'Increase Window Width' })
---
+
 -- Window navigation
 nmap('<C-h>', '<C-w><C-h>', 'Move focus to the left window')
 nmap('<C-l>', '<C-w><C-l>', 'Move focus to the right window')
