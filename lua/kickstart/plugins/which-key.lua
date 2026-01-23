@@ -67,6 +67,7 @@ return {
         { '<leader>gh', group = '[H]unk', mode = { 'n', 'v' } },
         { '<leader>gG', group = '[G]itHub', mode = { 'n', 'v' } },
         { '<leader>s', group = '[S]earch' },
+        { '<leader><tab>', group = 'Tabs' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>u', group = '[U]i' },
         { '<leader>w', proxy = '<c-w>', desc = '[W]indow' },
