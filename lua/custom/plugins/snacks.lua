@@ -7,50 +7,24 @@ return {
       -- use entire screen space
       lazygit = { width = 0, height = 0 },
       scratch = { width = 0, height = 0 },
+
       terminal = {
         bo = {
           filetype = 'snacks_terminal',
         },
         wo = {},
         stack = true, -- when enabled, multiple split windows with the same position will be stacked together (useful for terminals)
+        --
+        -- stylua: ignore
         keys = {
           -- Add window navigation keys
-          ['<C-h>'] = {
-            function()
-              vim.cmd 'stopinsert'
-              vim.cmd 'wincmd h'
-            end,
-            mode = 't',
-          },
-          ['<C-j>'] = {
-            function()
-              vim.cmd 'stopinsert'
-              vim.cmd 'wincmd j'
-            end,
-            mode = 't',
-          },
-          ['<C-k>'] = {
-            function()
-              vim.cmd 'stopinsert'
-              vim.cmd 'wincmd k'
-            end,
-            mode = 't',
-          },
-          ['<C-l>'] = {
-            function()
-              vim.cmd 'stopinsert'
-              vim.cmd 'wincmd l'
-            end,
-            mode = 't',
-          },
-          ['<C-/>'] = {
-            function()
-              vim.cmd 'stopinsert'
-              Snacks.terminal.toggle()
-            end,
-            mode = 't',
-          },
-          gf = function(self)
+          ['<C-h>'] = { function() vim.cmd 'stopinsert' vim.cmd 'wincmd h' end, mode = 't' },
+          ['<C-j>'] = { function() vim.cmd 'stopinsert' vim.cmd 'wincmd j' end, mode = 't' },
+          ['<C-k>'] = { function() vim.cmd 'stopinsert' vim.cmd 'wincmd k' end, mode = 't' },
+          ['<C-l>'] = { function() vim.cmd 'stopinsert' vim.cmd 'wincmd l' end, mode = 't' },
+          ['<C-/>'] = { function() vim.cmd 'stopinsert' Snacks.terminal.toggle() end, mode = 't' },
+
+            gf = function(self)
             local f = vim.fn.findfile(vim.fn.expand '<cfile>', '**')
             if f == '' then
               Snacks.notify.warn 'No file under cursor'
@@ -61,6 +35,7 @@ return {
               end)
             end
           end,
+
           term_normal = {
             '<esc>',
             function(self)
@@ -106,90 +81,19 @@ return {
       end,
     })
   end,
+  -- stylua: ignore
   keys = {
-    {
-      '<leader>bd',
-      function()
-        Snacks.bufdelete()
-      end,
-      desc = '[D]elete',
-    },
-    {
-      '<leader>bo',
-      function()
-        Snacks.bufdelete.other()
-      end,
-      desc = 'Delete [O]ther',
-    },
-    {
-      '<leader>ba',
-      function()
-        Snacks.bufdelete.all()
-      end,
-      desc = 'Delete [A]ll',
-    },
-    {
-      '<leader><leader>e',
-      function()
-        Snacks.explorer()
-      end,
-      desc = 'Explorer Snacks (root dir)',
-    },
-    {
-      '<leader>gg',
-      function()
-        Snacks.lazygit.open(require('snacks').config.lazygit)
-      end,
-      desc = 'Lazygit',
-    },
-    {
-      '<leader>gGi',
-      function()
-        Snacks.picker.gh_issue()
-      end,
-      desc = 'GitHub Issues (open)',
-    },
-    {
-      '<leader>gGI',
-      function()
-        Snacks.picker.gh_issue { state = 'all' }
-      end,
-      desc = 'GitHub Issues (all)',
-    },
-    {
-      '<leader>gGp',
-      function()
-        Snacks.picker.gh_pr()
-      end,
-      desc = 'GitHub Pull Requests (open)',
-    },
-    {
-      '<leader>gGP',
-      function()
-        Snacks.picker.gh_pr { state = 'all' }
-      end,
-      desc = 'GitHub Pull Requests (all)',
-    },
-    {
-      '<leader>.',
-      function()
-        Snacks.scratch()
-      end,
-      desc = 'Scratch',
-    },
-    {
-      '<leader><leader>.',
-      function()
-        Snacks.scratch.select()
-      end,
-      desc = 'Select Scratch Buffer',
-    },
-    {
-      '<C-/>',
-      function()
-        Snacks.terminal.toggle()
-      end,
-      desc = '[T]oggle terminal',
-    },
+    { '<leader>bd', function() Snacks.bufdelete() end, desc = '[D]elete' },
+    { '<leader>bo', function() Snacks.bufdelete.other() end, desc = 'Delete [O]ther' },
+    { '<leader>ba', function() Snacks.bufdelete.all() end, desc = 'Delete [A]ll' },
+    { '<leader><leader>e', function() Snacks.explorer() end, desc = 'Explorer Snacks (root dir)' },
+    { '<leader>gg', function() Snacks.lazygit.open(require('snacks').config.lazygit) end, desc = 'Lazygit' },
+    { '<leader>gGi', function() Snacks.picker.gh_issue() end, desc = 'GitHub Issues (open)' },
+    { '<leader>gGI', function() Snacks.picker.gh_issue { state = 'all' } end, desc = 'GitHub Issues (all)' },
+    { '<leader>gGp', function() Snacks.picker.gh_pr() end, desc = 'GitHub Pull Requests (open)' },
+    { '<leader>gGP', function() Snacks.picker.gh_pr { state = 'all' } end, desc = 'GitHub Pull Requests (all)' },
+    { '<leader>.', function() Snacks.scratch() end, desc = 'Scratch' },
+    { '<leader><leader>.', function() Snacks.scratch.select() end, desc = 'Select Scratch Buffer' },
+    { '<C-/>', function() Snacks.terminal.toggle() end, desc = '[T]oggle terminal' },
   },
 }
