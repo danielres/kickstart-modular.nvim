@@ -94,6 +94,9 @@ return {
       groups = {
         default = {
           -- Only add your custom augends - defaults are already included
+          augend.integer.alias.decimal,
+          augend.integer.alias.hex,
+          augend.constant.alias.bool,
           ordinal_numbers,
           weekdays,
           months,
