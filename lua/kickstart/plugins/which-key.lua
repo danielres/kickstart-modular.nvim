@@ -62,6 +62,7 @@ return {
         { '<leader>a', group = '[A]i' },
         { '<leader>b', group = '[B]uffer' },
         { '<leader>c', group = '[C]ode' },
+        { '<leader>d', group = '[D]irenv' },
         { '<leader>g', group = '[G]it' },
         { '<leader>h', group = '[H]aunt' },
         { '<leader>gh', group = '[H]unk', mode = { 'n', 'v' } },
