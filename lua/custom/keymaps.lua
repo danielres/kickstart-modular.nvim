@@ -22,6 +22,7 @@ vim.keymap.set({ 'n', 'x' }, '<Up>', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up',
 -- Save buffer
 vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = '[S]ave' })
 vim.keymap.set({ 'i', 'x', 'n', 's' }, '<leader>bs', '<cmd>w<cr><esc>', { desc = '[S]ave' })
+vim.keymap.set({ 'i', 'x', 'n', 's' }, '<leader><leader>s', '<cmd>w<cr><esc>', { desc = '[S]ave' })
 
 -- Quit
 vim.keymap.set('n', '<leader><leader>q', '<cmd>qa<cr>', { desc = '[Q]uit All' })
