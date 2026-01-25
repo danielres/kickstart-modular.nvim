@@ -10,7 +10,7 @@ local nmap = function(lhs, rhs, desc)
 end
 
 -- Code
-vim.keymap.set('n', '<leader>cl', '<cmd>LspInfo<cr>', { desc = 'Lsponfig' })
+vim.keymap.set('n', '<leader>cl', '<cmd>LspInfo<cr>', { desc = 'LspConfig' })
 
 -- Commenting
 vim.keymap.set('n', 'gco', 'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Below' })
