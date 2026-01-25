@@ -81,33 +81,33 @@ return {
           map('<localleader>a', vim.lsp.buf.code_action, 'Code [A]ction', { 'n', 'x' })
 
           -- Find references for the word under your cursor.
-          map('<localleader>r', require('telescope.builtin').lsp_references, '[R]eferences')
+          -- map('<localleader>r', require('telescope.builtin').lsp_references, '[R]eferences')
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
-          map('<localleader>i', require('telescope.builtin').lsp_implementations, '[I]mplementation')
+          -- map('<localleader>i', require('telescope.builtin').lsp_implementations, '[I]mplementation')
 
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
-          map('<localleader>d', require('telescope.builtin').lsp_definitions, '[D]efinition')
+          -- map('<localleader>d', require('telescope.builtin').lsp_definitions, '[D]efinition')
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
-          map('<localleader>D', vim.lsp.buf.declaration, '[D]eclaration')
+          -- map('<localleader>D', vim.lsp.buf.declaration, '[D]eclaration')
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
-          map('<localleader>s', require('telescope.builtin').lsp_document_symbols, 'Document [S]ymbols')
+          -- map('<localleader>s', require('telescope.builtin').lsp_document_symbols, 'Document [S]ymbols')
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          map('<localleader>S', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace [S]ymbols')
+          -- map('<localleader>S', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace [S]ymbols')
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
-          map('<localleader>y', require('telescope.builtin').lsp_type_definitions, 'T[Y]pe Definition')
+          -- map('<localleader>y', require('telescope.builtin').lsp_type_definitions, 'T[Y]pe Definition')
 
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
