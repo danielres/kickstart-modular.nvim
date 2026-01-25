@@ -1,5 +1,6 @@
 return {
   'nvim-mini/mini.nvim',
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
   version = '*',
 
   -- CONFIG --------------------------------------------------------------------
@@ -38,13 +39,6 @@ return {
     require('mini.pairs').setup()
     require('mini.sessions').setup {
       autoread = true,
-    }
-
-    require('mini.statusline').setup {
-      use_icons = vim.g.have_nerd_font,
-      section_location = function()
-        return '%2l:%-2v'
-      end,
     }
 
     require('mini.surround').setup {
