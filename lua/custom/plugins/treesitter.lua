@@ -1,4 +1,4 @@
-local languages = { 'c', 'lua', 'rust', 'elixir', 'heex', 'ex' }
+local languages = { 'c', 'lua', 'rust', 'elixir', 'heex', 'nix' }
 
 return {
   {
