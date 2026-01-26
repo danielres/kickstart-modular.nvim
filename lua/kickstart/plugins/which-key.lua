@@ -31,10 +31,12 @@ return {
         { '<leader>d', group = '[D]irenv' },
         { '<leader>f', group = '[F]ind' },
         { '<leader>g', group = '[G]it' },
-        { '<leader>h', group = '[H]aunt' },
         { '<leader>gh', group = '[H]unk', mode = { 'n', 'v' } },
         { '<leader>gG', group = '[G]itHub', mode = { 'n', 'v' } },
+        { '<leader>h', group = '[H]aunt' },
+        { '<leader>sn', group = '[N]oice' },
         { '<leader>s', group = '[S]earch' },
+        { '<leader>st', group = '[T]odos' },
         { '<leader><tab>', group = 'Tabs' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>u', group = '[U]i' },
@@ -45,4 +47,3 @@ return {
     },
   },
 }
--- vim: ts=2 sts=2 sw=2 et
