@@ -23,11 +23,13 @@ return {
       options = { permanent_delete = false },
     }
     require('mini.hipatterns').setup {
+      -- stylua: ignore
       highlighters = {
         fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
-        hack = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
-        todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
-        note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+        hack =  { pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack'  },
+        todo =  { pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo'  },
+        note =  { pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote'  },
+
         -- Highlight hex color strings (`#rrggbb`) using that color
         hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
       },
@@ -42,11 +44,12 @@ return {
     }
 
     require('mini.surround').setup {
+      -- stylua: ignore
       mappings = {
-        add = 'gsa', -- Add surrounding in Normal and Visual modes
-        delete = 'gsd', -- Delete surrounding
+        add       = 'gsa', -- Add surrounding in Normal and Visual modes
+        delete    = 'gsd', -- Delete surrounding
         highlight = 'gsh', -- Highlight surrounding
-        replace = 'gsr', -- Replace surrounding
+        replace   = 'gsr', -- Replace surrounding
       },
     }
   end,
