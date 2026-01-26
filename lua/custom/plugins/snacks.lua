@@ -12,6 +12,9 @@ return {
         buffers = { layout = { fullscreen = true } },
       },
     },
+    words = {
+      enabled = true,
+    },
     styles = {
       -- use entire screen space
       lazygit = { width = 0, height = 0 },
@@ -180,5 +183,9 @@ return {
     { "<localleader>ao", function() Snacks.picker.lsp_outgoing_calls() end, desc = "C[a]lls Outgoing" },
     { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
     { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+
+    -- Words
+    { "]]", function() Snacks.words.jump() end, desc = "Words: jump" },
+    { "[[", function() Snacks.words.jump(-1) end, desc = "Words: jump backwards" },
   },
 }
