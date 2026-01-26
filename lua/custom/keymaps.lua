@@ -36,6 +36,7 @@ vim.keymap.set('n', '<leader><leader>q', '<cmd>qa<cr>', { desc = '[Q]uit All' })
 vim.keymap.set('n', '<leader><Tab>o', '<Cmd>tabonly<CR>', { desc = 'Close [O]ther Tabs' })
 vim.keymap.set('n', '<leader><Tab>[', '<Cmd>tabprevious<CR>', { desc = 'Previous Tab' })
 vim.keymap.set('n', '<leader><Tab>]', '<Cmd>tabnext<CR>', { desc = 'Next Tab' })
+vim.keymap.set('n', '<leader><Tab><Tab>', '<Cmd>tabnext<CR>', { desc = 'Next Tab' })
 vim.keymap.set('n', '<leader><Tab>n', '<Cmd>tabnew<CR>', { desc = 'New Tab' })
 vim.keymap.set('n', '<leader><Tab>d', '<Cmd>tabclose<CR>', { desc = 'Close Tab' })
 
