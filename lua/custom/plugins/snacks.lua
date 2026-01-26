@@ -92,7 +92,7 @@ return {
   -- stylua: ignore
   keys = {
     -- -- replace command line input (adds support for vim modes)
-    { ':', function() Snacks.input({ prompt = 'Command: ', completion = 'command', }, function(value) if value then vim.cmd(value) end end) end, },
+    { ':', function() Snacks.input({ prompt = 'Command: ', completion = 'command', }, function(value) if value then vim.cmd(value) end end) end, desc = "Command" },
     -- -- windows
     { '<leader>wn', function() Snacks.notifier.show_history() end, desc = '[D]elete' },
     -- -- buffers
