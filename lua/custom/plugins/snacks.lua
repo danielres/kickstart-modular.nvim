@@ -4,8 +4,9 @@ return {
   priority = 1000,
   opts = {
     picker = {
-      layout = {
-        fullscreen = true,
+      sources = {
+        files = { layout = { fullscreen = true } },
+        buffers = { layout = { fullscreen = true } },
       },
     },
     styles = {
