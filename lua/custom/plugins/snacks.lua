@@ -91,6 +91,7 @@ return {
   end,
   -- stylua: ignore
   keys = {
+    -- -- replace command line input (adds support for vim modes)
     { ':', function() Snacks.input({ prompt = 'Command: ', completion = 'command', }, function(value) if value then vim.cmd(value) end end) end, },
     -- -- windows
     { '<leader>wn', function() Snacks.notifier.show_history() end, desc = '[D]elete' },
@@ -98,21 +99,17 @@ return {
     { '<leader>bd', function() Snacks.bufdelete() end, desc = '[D]elete' },
     { '<leader>bo', function() Snacks.bufdelete.other() end, desc = 'Delete [O]ther' },
     { '<leader>ba', function() Snacks.bufdelete.all() end, desc = 'Delete [A]ll' },
-    -- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
     { '<leader><leader>e', function() Snacks.explorer() end, desc = 'Explorer Snacks (root dir)' },
+    { '<leader><leader>.', function() Snacks.scratch.select() end, desc = 'Select Scratch Buffer' },
+    -- -- Git
     { '<leader>gg', function() Snacks.lazygit.open(require('snacks').config.lazygit) end, desc = 'Lazygit' },
     { '<leader>gGi', function() Snacks.picker.gh_issue() end, desc = 'GitHub Issues (open)' },
     { '<leader>gGI', function() Snacks.picker.gh_issue { state = 'all' } end, desc = 'GitHub Issues (all)' },
     { '<leader>gGp', function() Snacks.picker.gh_pr() end, desc = 'GitHub Pull Requests (open)' },
     { '<leader>gGP', function() Snacks.picker.gh_pr { state = 'all' } end, desc = 'GitHub Pull Requests (all)' },
     { '<leader>.', function() Snacks.scratch() end, desc = 'Scratch' },
-    { '<leader><leader>.', function() Snacks.scratch.select() end, desc = 'Select Scratch Buffer' },
+    -- -- terminal
     { '<C-/>', function() Snacks.terminal.toggle() end, desc = '[T]oggle terminal' },
-    -----
-     -- Top Pickers & Explorer
-    -- { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-    -- { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
-    { "<leader>un", function() Snacks.picker.notifications() end, desc = "Notification History" },
     -- -- find
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<C-Space>", function() Snacks.picker.buffers() end, desc = "Buffers" },
@@ -139,7 +136,6 @@ return {
     { "<leader>sn", function() Snacks.picker.notifications() end, desc = "Notification History" },
     { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
     { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
-    -- { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
     { "<leader>sg", function() Snacks.picker.grep() end, desc = "Grep" },
     { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
     -- -- search
