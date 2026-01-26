@@ -10,7 +10,9 @@ local nmap = function(lhs, rhs, desc)
 end
 
 -- Code
-vim.keymap.set('n', '<leader>cl', '<cmd>LspInfo<cr>', { desc = 'LspConfig' })
+vim.keymap.set('n', '<localleader>l', '<cmd>LspInfo<cr>', { desc = 'LspInfo' })
+vim.keymap.set('n', '<localleader>m', '<cmd>Mason<cr>', { desc = 'Mason' })
+vim.keymap.set('n', '<leader>cl', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 
 -- Commenting
 vim.keymap.set('n', 'gco', 'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Below' })
