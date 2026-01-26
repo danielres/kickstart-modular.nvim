@@ -4,6 +4,8 @@ return {
   priority = 1000,
   opts = {
     gitbrowse = {},
+    image = {},
+    notifier = {},
     picker = {
       sources = {
         files = { layout = { fullscreen = true } },
@@ -90,6 +92,9 @@ return {
   -- stylua: ignore
   keys = {
     { ':', function() Snacks.input({ prompt = 'Command: ', completion = 'command', }, function(value) if value then vim.cmd(value) end end) end, },
+    -- -- windows
+    { '<leader>wn', function() Snacks.notifier.show_history() end, desc = '[D]elete' },
+    -- -- buffers
     { '<leader>bd', function() Snacks.bufdelete() end, desc = '[D]elete' },
     { '<leader>bo', function() Snacks.bufdelete.other() end, desc = 'Delete [O]ther' },
     { '<leader>ba', function() Snacks.bufdelete.all() end, desc = 'Delete [A]ll' },
@@ -131,6 +136,7 @@ return {
     -- { "<leader>gp", function() Snacks.picker.gh_pr() end, desc = "GitHub Pull Requests (open)" },
     -- { "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, desc = "GitHub Pull Requests (all)" },
     -- -- Grep
+    { "<leader>sn", function() Snacks.picker.notifications() end, desc = "Notification History" },
     { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
     { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
     -- { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
