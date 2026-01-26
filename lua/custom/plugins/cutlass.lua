@@ -4,6 +4,7 @@
 return {
   'svermeulen/vim-cutlass',
   config = function()
+    -- stylua: ignore
     vim.keymap.set('n', 'm', 'd',   { noremap = true, desc = '[M]ove (cut)' })
     vim.keymap.set('x', 'm', 'd',   { noremap = true, desc = '[M]ove (cut)' })
     vim.keymap.set('n', 'mm', 'dd', { noremap = true, desc = '[M]ove (cut) line ' })
