@@ -89,6 +89,7 @@ return {
   end,
   -- stylua: ignore
   keys = {
+    { ':', function() Snacks.input({ prompt = 'Command: ', completion = 'command', }, function(value) if value then vim.cmd(value) end end) end, },
     { '<leader>bd', function() Snacks.bufdelete() end, desc = '[D]elete' },
     { '<leader>bo', function() Snacks.bufdelete.other() end, desc = 'Delete [O]ther' },
     { '<leader>ba', function() Snacks.bufdelete.all() end, desc = 'Delete [A]ll' },
