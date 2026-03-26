@@ -9,6 +9,17 @@ local nmap = function(lhs, rhs, desc)
   vim.keymap.set('n', lhs, rhs, { desc = desc })
 end
 
+vim.keymap.set('n', '<leader>80', function()
+  vim.api.nvim_feedkeys(vim.keycode 'A<Space><Esc>', 'nx', false)
+
+  local target = 80
+  local col = vim.fn.virtcol '.'
+  local count = math.max(0, target - col)
+  if count > 0 then
+    vim.api.nvim_put({ string.rep('=', count) }, 'c', true, true)
+  end
+end, { desc = 'Append with = to column 80' })
+
 -- Code
 vim.keymap.set('n', '<localleader>l', '<cmd>LspInfo<cr>', { desc = '[L]spInfo' })
 vim.keymap.set('n', '<localleader>m', '<cmd>Mason<cr>', { desc = '[MMason' })
