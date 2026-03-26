@@ -53,11 +53,11 @@ vim.keymap.set('n', 'N', "'nN'[v:searchforward].'zv'", { expr = true, desc = 'Pr
 vim.keymap.set('x', 'N', "'nN'[v:searchforward]", { expr = true, desc = 'Prev Search Result' })
 vim.keymap.set('o', 'N', "'nN'[v:searchforward]", { expr = true, desc = 'Prev Search Result' })
 
--- Resize window using <ctrl> arrow keys
-vim.keymap.set('n', '<Up>', '<cmd>resize +6<cr>', { desc = 'Increase Window Height' })
-vim.keymap.set('n', '<Down>', '<cmd>resize -6<cr>', { desc = 'Decrease Window Height' })
-vim.keymap.set('n', '<Left>', '<cmd>vertical resize -8<cr>', { desc = 'Decrease Window Width' })
-vim.keymap.set('n', '<Right>', '<cmd>vertical resize +8<cr>', { desc = 'Increase Window Width' })
+-- Resize window using <alt> + arrow keys
+vim.keymap.set('n', '<A-Up>', '<cmd>resize +6<cr>', { desc = 'Increase Window Height' })
+vim.keymap.set('n', '<A-Down>', '<cmd>resize -6<cr>', { desc = 'Decrease Window Height' })
+vim.keymap.set('n', '<A-Left>', '<cmd>vertical resize -8<cr>', { desc = 'Decrease Window Width' })
+vim.keymap.set('n', '<A-Right>', '<cmd>vertical resize +8<cr>', { desc = 'Increase Window Width' })
 
 -- Window navigation
 nmap('<C-h>', '<C-w><C-h>', 'Move focus to the left window')
