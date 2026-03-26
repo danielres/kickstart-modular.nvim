@@ -238,6 +238,14 @@ return {
             },
           },
         },
+
+        elixirls = {
+          settings = {
+            elixirLS = {
+              enableTestLenses = true,
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
