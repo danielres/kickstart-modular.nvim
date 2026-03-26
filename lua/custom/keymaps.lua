@@ -33,6 +33,10 @@ vim.keymap.set({ 'i', 'x', 'n', 's' }, '<leader><leader>s', '<cmd>w<cr><esc>', {
 -- Quit
 vim.keymap.set('n', '<leader><leader>q', '<cmd>qa<cr>', { desc = '[Q]uit All' })
 
+-- Macros
+vim.keymap.set('n', 'q', '<Nop>', { desc = 'Disable macro recording on q' })
+vim.keymap.set('n', '<A-q>', 'q', { desc = 'Start macro recording' })
+
 -- Tabs
 vim.keymap.set('n', '<leader><Tab>o', '<Cmd>tabonly<CR>', { desc = 'Close [O]ther Tabs' })
 vim.keymap.set('n', '<leader><Tab>[', '<Cmd>tabprevious<CR>', { desc = 'Previous Tab' })
