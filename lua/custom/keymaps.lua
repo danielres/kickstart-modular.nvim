@@ -22,7 +22,7 @@ end, { desc = 'Append with = to column 80' })
 
 -- Code
 vim.keymap.set('n', '<localleader>l', '<cmd>LspInfo<cr>', { desc = '[L]spInfo' })
-vim.keymap.set('n', '<localleader>m', '<cmd>Mason<cr>', { desc = '[MMason' })
+vim.keymap.set('n', '<localleader>m', '<cmd>Mason<cr>', { desc = '[M]ason' })
 vim.keymap.set('n', '<leader>cl', '<cmd>Lazy<cr>', { desc = '[L]azy' })
 vim.keymap.set('x', '<leader>cs', ':sort<CR>', { desc = '[S]ort Selection' })
 
