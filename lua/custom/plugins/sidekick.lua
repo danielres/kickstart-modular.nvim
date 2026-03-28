@@ -7,7 +7,7 @@ return {
     cli = {
       mux = {
         backend = 'zellij',
-        enabled = true,
+        enabled = false,
       },
       prompts = {
         haunt_all = function()
