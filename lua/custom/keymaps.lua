@@ -9,6 +9,25 @@ local nmap = function(lhs, rhs, desc)
   vim.keymap.set('n', lhs, rhs, { desc = desc })
 end
 
+local open_messages = function()
+  local output = vim.api.nvim_exec2('messages', { output = true }).output or ''
+  local lines = vim.split(output, '\n', { plain = true })
+  local buf = vim.api.nvim_create_buf(false, true)
+
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+  vim.api.nvim_buf_set_name(buf, 'Messages')
+
+  vim.bo[buf].bufhidden = 'wipe'
+  vim.bo[buf].buftype = 'nofile'
+  vim.bo[buf].filetype = 'log'
+  vim.bo[buf].modifiable = false
+  vim.bo[buf].swapfile = false
+
+  vim.cmd 'vsplit'
+  vim.api.nvim_win_set_buf(0, buf)
+  vim.api.nvim_win_set_cursor(0, { 1, 0 })
+end
+
 vim.keymap.set('n', '<leader>80', function()
   vim.api.nvim_feedkeys(vim.keycode 'A<Space><Esc>', 'nx', false)
 
@@ -75,6 +94,9 @@ nmap('<C-h>', '<C-w><C-h>', 'Move focus to the left window')
 nmap('<C-l>', '<C-w><C-l>', 'Move focus to the right window')
 nmap('<C-j>', '<C-w><C-j>', 'Move focus to the lower window')
 nmap('<C-k>', '<C-w><C-k>', 'Move focus to the upper window')
+
+-- Special windows
+vim.keymap.set('n', '<leader>wm', open_messages, { desc = 'Open error [M]essages' })
 
 -- Buffers
 nmap('<S-h>', '<cmd>bprevious<cr>', 'Prev Buffer')
