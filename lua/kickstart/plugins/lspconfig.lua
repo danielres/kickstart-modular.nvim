@@ -226,6 +226,43 @@ return {
           -- filetypes = { ... },
           -- capabilities = {},
           settings = {
+
+            emmet_language_server = {
+              filetypes = {
+                'css',
+                'eruby',
+                -- "html",
+                'javascript',
+                'javascriptreact',
+                'less',
+                'sass',
+                'scss',
+                'pug',
+                'typescriptreact',
+                -- Phoenix templates:
+                'heex',
+                -- "eelixir",
+                'elixir',
+                -- "leex",
+              },
+              init_options = {
+                includeLanguages = {
+                  -- heex = "html",
+                  -- eelixir = "html",
+                  -- elixir = "html",
+                  -- leex = "html",
+                },
+                excludeLanguages = {},
+                extensionsPath = {},
+                preferences = {},
+                showAbbreviationSuggestions = true,
+                showExpandedAbbreviation = 'always',
+                showSuggestionsAsSnippets = false,
+                syntaxProfiles = {},
+                variables = {},
+              },
+            },
+
             Lua = {
               diagnostics = {
                 globals = { 'vim' },
