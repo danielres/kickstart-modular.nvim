@@ -4,6 +4,20 @@ vim.api.nvim_create_autocmd(
   { desc = 'autosave', pattern = '*', command = 'silent! update' }
 )
 
+local checktime_group = vim.api.nvim_create_augroup('custom_checktime', { clear = true })
+
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+  group = checktime_group,
+  desc = 'Reload buffers changed outside Neovim',
+  callback = function()
+    if vim.bo.buftype ~= '' then
+      return
+    end
+
+    vim.cmd 'silent! checktime'
+  end,
+})
+
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'markdown',
   callback = function()

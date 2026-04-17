@@ -43,6 +43,9 @@ vim.o.breakindent = true
 -- Save undo history
 vim.o.undofile = true
 
+-- Automatically reload files that changed on disk when the buffer has no local edits.
+vim.o.autoread = true
+
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
 vim.o.smartcase = true
