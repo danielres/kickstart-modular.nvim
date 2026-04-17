@@ -39,6 +39,16 @@ vim.keymap.set('n', '<leader>80', function()
   end
 end, { desc = 'Append with = to column 80' })
 
+-- Clipboard
+
+vim.keymap.set('n', '<leader>yp', function()
+  vim.fn.setreg('+', vim.fn.fnamemodify(vim.fn.expand '%:p', ':.'))
+end, { desc = 'Copy file path (from project root)' })
+
+vim.keymap.set('n', '<leader>yP', function()
+  vim.fn.setreg('+', vim.fn.expand '%:p')
+end, { desc = 'Copy file path (full)' })
+
 -- Code
 vim.keymap.set('n', '<localleader>l', '<cmd>LspInfo<cr>', { desc = '[L]spInfo' })
 vim.keymap.set('n', '<localleader>m', '<cmd>Mason<cr>', { desc = '[M]ason' })
