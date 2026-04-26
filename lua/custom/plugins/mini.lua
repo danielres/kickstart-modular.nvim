@@ -6,6 +6,8 @@ return {
   -- CONFIG --------------------------------------------------------------------
 
   config = function()
+    local MiniFiles = require 'mini.files'
+
     --  - va)  - [V]isually select [A]round [)]paren
     --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
     --  - ci'  - [C]hange [I]nside [']quote
@@ -17,11 +19,44 @@ return {
         textobject = 'c',
       },
     }
-    require('mini.files').setup {
+    MiniFiles.setup {
       windows = { preview = true, width_preview = 75 },
       mappings = { close = '<Esc>' },
       options = { permanent_delete = false },
     }
+
+    local files_grug_far_replace = function()
+      local entry = MiniFiles.get_fs_entry()
+      if not entry then
+        return
+      end
+
+      local prefills = { paths = vim.fs.dirname(entry.path) }
+      local grug_far = require 'grug-far'
+
+      if not grug_far.has_instance 'explorer' then
+        grug_far.open {
+          instanceName = 'explorer',
+          prefills = prefills,
+          staticTitle = 'Find and Replace from Explorer',
+        }
+      else
+        grug_far.get_instance('explorer'):open()
+        -- Update paths without clearing the current search/replace fields.
+        grug_far.get_instance('explorer'):update_input_values(prefills, false)
+      end
+    end
+
+    vim.api.nvim_create_autocmd('User', {
+      pattern = 'MiniFilesBufferCreate',
+      callback = function(args)
+        vim.keymap.set('n', 'gs', files_grug_far_replace, {
+          buffer = args.data.buf_id,
+          desc = 'Search in directory',
+        })
+      end,
+    })
+
     require('mini.hipatterns').setup {
       -- stylua: ignore
       highlighters = {
