@@ -10,8 +10,41 @@ return {
       sources = {
         files = { layout = { fullscreen = true } },
         buffers = { layout = { fullscreen = true } },
+        explorer = {
+          actions = {
+            grug_far = function(picker, item)
+              local grug_far = require 'grug-far'
+
+              local selected = picker:selected { fallback = true }
+              local paths = {}
+
+              for _, entry in ipairs(selected) do
+                local path = entry.dir and entry.file or vim.fs.dirname(entry.file)
+                table.insert(paths, vim.fn.fnameescape(path))
+              end
+
+              if not grug_far.has_instance 'explorer' then
+                grug_far.open { instanceName = 'explorer' }
+              else
+                grug_far.get_instance('explorer'):open()
+              end
+
+              grug_far.get_instance('explorer'):update_input_values({
+                paths = table.concat(paths, '\n'),
+              }, false)
+            end,
+          },
+          win = {
+            list = {
+              keys = {
+                ['gs'] = 'grug_far',
+              },
+            },
+          },
+        },
       },
     },
+
     words = {
       enabled = true,
     },
